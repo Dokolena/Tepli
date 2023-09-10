@@ -27,7 +27,7 @@ const NewsList = observer(() => {
                             <div className="row news">
                                 <h2 className="h2_header">{news.title}</h2>
                                 <hr />
-                                {news.img.map((i) => (
+                                {news && news.img && news.img.map((i) => (
                                     <div className="col-lg-3 col-md-2 text-center">
                                         <img
                                             className="img-thumbnail img-responsive pull-left"
