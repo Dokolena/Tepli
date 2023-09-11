@@ -61,7 +61,7 @@ COMMENT ON COLUMN about.body IS 'Информация о компании';
 
 CREATE TABLE price(
      price_id       SERIAL PRIMARY KEY
-    ,price_name      VARCHAR(255)       
+    ,price_name      VARCHAR(255)
     ,price_path      VARCHAR(255)       NOT NULL
 );
 
@@ -78,11 +78,13 @@ COMMENT ON TABLE contacts IS 'Контакты';
 COMMENT ON COLUMN contacts.cont_id  IS 'Идентификатор контактов';
 COMMENT ON COLUMN contacts.data IS 'Информация о контактах в формате json';
 
-INSERT INTO users (user_name, user_password) VALUES ('user', 'userpassword');
-
+INSERT INTO users (user_name, user_password) VALUES (
+    'user', 'userpassword');
+INSERT INTO users (user_name, user_password, is_admin) VALUES (
+    'admin', '$2b$05$V9q/L6h6X8UQQpyEMYAs6uDy2Fdq3dxQ/1bfAPw7l.ITXXUolLjuG', true);
 
 INSERT INTO news (title, body) VALUES ('proverka','proverkakartinok');
-INSERT INTO images (news_id, img) VALUES ('1','pathone');
+INSERT INTO images (news_id, img) VALUES (1, '["pathone"]');
 INSERT INTO contacts (data) VALUES ('{
   "phone":
 [
@@ -103,7 +105,7 @@ INSERT INTO contacts (data) VALUES ('{
     "num" : "+7 (999) 880 27 03"
   }
 ]
-, "email": 
+, "email":
 [
   {
     "id" : 1,
@@ -115,8 +117,8 @@ INSERT INTO contacts (data) VALUES ('{
   {
     "id" : 1,
     "name" : "Facebook",
-    "ref" :  "http://www.facebook.com" 
-  }, 
+    "ref" :  "http://www.facebook.com"
+  },
   {
     "id" : 2,
     "name" : "Youtube",
